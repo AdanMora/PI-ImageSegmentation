@@ -1,0 +1,24 @@
+nombres <- c("Jose", "Maria", "Pablo", "Juan", "Daniel", "David")
+edades <- c(18L, 21L, 24L, 18L, 30L, 22L) # Defición de un vector.
+matriz <- cbind(Nombre=nombres, Edad=edades) # Creamos una matriz a partir de dos vectores, cada vector es una columna.
+carreras <- c("Computacion", "Mecatronica", "Ambiental", "ATI", "Computacion", "Computacion") # Defición de un vector.
+
+# Creamos el Data Frame a partir de un vector declarado en el mismo Data Frame, una matriz y un vector definido anteriormente.
+estudiantes <- data.frame(Carnet=c("0000","0001","0002","0003","0004","0005"), matriz, Carrera=carreras)
+estudiantes # Observemos el Data Frame que creamos.
+class(estudiantes$Carrera) # Notemos que las columnas de strings son automáticamente de la clase factor.
+estudiantes[1,3] # Indexamos el elemento de la fila 1, columna 3, la edad de Jose.
+levels(estudiantes$Edad)[1] <- 20 # Actualizamos la edad de Jose.
+estudiantes # Observemos el resultado.
+
+# Veamos cuantos estudiantes pertenecen a cada carrera registrada.
+table(estudiantes$Carrera)
+
+creditos <- c(12, 10, 15, 15, 18, 20) # Defición de un vector de creditos matriculados.
+estudiantes$Creditos.Matriculados = creditos # Concatenamos un nuevo vector al Data Frame como columna.
+estudiantes # Observemos el resultado.
+
+# Veamos cuanto tuvo que pagar cada estudiante por credito, suponiendo que
+# cada credito vale 3000 colones y tienen que pagar cada uno.
+estudiantes$TotalCreditos = estudiantes$Creditos.Matriculados * 3000
+estudiantes # Observemos el resultado.
